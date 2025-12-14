@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Anniversary Faria ❤️</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: "Courier New", monospace;
+    background: #050505;
+    color: #e0f7fa;
+    overflow: hidden;
+  }
+
+  h1 {
+    text-align: center;
+    color: #ff4d6d;
+    text-shadow: 0 0 15px #ff4d6d;
+  }
+
+  .panel {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    background: rgba(0,0,0,0.7);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 25px rgba(0,255,255,0.4);
+    position: relative;
+    z-index: 2;
+  }
+
+  .terminal {
+    margin-top: 10px;
+    min-height: 260px;
+    white-space: pre-wrap;
+  }
+
+  .line {
+    margin: 4px 0;
+  }
+
+  .heart {
+    color: #ff4d6d;
+    animation: beat 1s infinite;
+    display: inline-block;
+  }
+
+  @keyframes beat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.3); }
+    40% { transform: scale(1); }
+    60% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  button {
+    background: #00e5ff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  button:hover {
+    background: #ff4d6d;
+    color: white;
+  }
+
+  canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  /* BIG LOVE OVERLAY */
+  .love-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 5;
+  }
+
+  .big-heart {
+    font-size: 140px;
+    animation: beat 1s infinite;
+  }
+
+  .love-text {
+    font-size: 32px;
+    color: #ff4d6d;
+    margin-top: -20px;
+  }
+
+  .infinity {
+    font-size: 28px;
+    margin-top: 10px;
+    animation: spin 3s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<!-- LOVE OVERLAY -->
+<div class="love-overlay" id="loveOverlay" onclick="closeLove()">
+  <div class="big-heart">❤️</div>
+  <div class="love-text">I Love You Faria</div>
+  <div class="infinity">♾️ Infinite Love • Happy Anniversary ♾️</div>
+</div>
+
+<div class="panel">
+  <h1>💍 Happy Anniversary Faria ❤️</h1>
+
+  <div class="terminal" id="terminal"></div>
+
+  <div class="buttons">
+    <button onclick="heartbeat()">💓 Start Heartbeat</button>
+    <button onclick="diagnose()">🧪 Run Diagnosis</button>
+    <button onclick="prescribe()">💊 Prescribe Love</button>
+    <button onclick="panic()">🚑 Emergency Mode</button>
+    <button onclick="forever()">💍 Forever Protocol</button>
+    <button onclick="showLove()">❤️ Big Love</button>
+    <button onclick="clearScreen()">🧹 Clear</button>
+  </div>
+
+  <div class="footer">
+    Developed by S M Nadim Mahmud <br>
+    Anniversary Bond: Infinite ❤️
+  </div>
+</div>
+
+<script>
+/* ======================
+   TERMINAL ENGINE
+====================== */
+const terminal = document.getElementById("terminal");
+
+function log(text) {
+  const div = document.createElement("div");
+  div.className = "line";
+  div.innerHTML = text.replace(/❤️/g, '<span class="heart">❤️</span>');
+  terminal.appendChild(div);
+  terminal.scrollTop = terminal.scrollHeight;
+}
+
+/* BOOT MESSAGE (EXACT STYLE) */
+log("> Booting Love OS...");
+log("> User: Nadim (Husband)");
+log("> Linked Partner: Faria 👩‍⚕️🩺");
+log("> Anniversary Mode: ENABLED");
+log("");
+
+/* ======================
+   BUTTON FUNCTIONS
+====================== */
+function heartbeat() {
+  log("💓 Heartbeat started...");
+  log("Status: Stable when Faria is near ❤️ ﮩ٨ـﮩﮩ٨ـ🫀ﮩ٨ـﮩﮩ٨ـ");
+  log("");
+}
+
+function diagnose() {
+  log("🧪 Running medical diagnosis...");
+  log("Patient: Nadim");
+  log("Symptoms: Smiling randomly, missing Faria");
+  log("Diagnosis: Incurable Love ❤️");
+  log("");
+}
+
+function prescribe() {
+  log("💊 Prescription generated:");
+  log("- Daily smiles");
+  log("- Unlimited hugs");
+  log("- One kiss before sleep");
+  log("Doctor: Faria ❤️");
+  log("");
+}
+
+function panic() {
+  log("🚑 EMERGENCY!");
+  log("Heart rate increased...");
+  log("Reason: Faria smiled 😄");
+  log("Stabilizing...");
+  log("");
+}
+
+function forever() {
+  log("♾️ Activating Forever Protocol...");
+  log("while (life === true) {");
+  log("  love(Faria);");
+  log("  support(Faria);");
+  log("}");
+  log("Process will never terminate ❤️");
+  log("");
+}
+
+function clearScreen() {
+  terminal.innerHTML = "";
+  log("> Terminal cleared.");
+  log("");
+}
+
+/* ======================
+   BIG LOVE
+====================== */
+function showLove() {
+  document.getElementById("loveOverlay").style.display = "flex";
+}
+function closeLove() {
+  document.getElementById("loveOverlay").style.display = "none";
+}
+
+/* ======================
+   FLOATING HEART BACKGROUND
+====================== */
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+let hearts = [];
+
+function createHeart() {
+  hearts.push({
+    x: Math.random() * canvas.width,
+    y: canvas.height + 30,
+    size: Math.random() * 24 + 14,
+    speed: Math.random() * 1.5 + 0.5
+  });
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  hearts.forEach((h, i) => {
+    ctx.font = h.size + "px serif";
+    ctx.fillText("❤️", h.x, h.y);
+    h.y -= h.speed;
+    if (h.y < -40) hearts.splice(i, 1);
+  });
+
+  requestAnimationFrame(draw);
+}
+
+setInterval(createHeart, 250);
+draw();
+</script>
+
+</body>
+</html>
